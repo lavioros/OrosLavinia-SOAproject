@@ -1,0 +1,31 @@
+@startuml
+
+class ToDoRepository
+class ToDoController
+class Todo
+
+
+ToDoRepository <|-- ToDoController
+Todo <|-- ToDoController
+
+
+class ToDoRepository {
+public List<Todo> findAll()
+}
+
+class ToDoController{
+public ResponseEntity<?> createNewToDo(Todo)
+public List getAllTodosExternal()
+public void deleteTodo(long itemId)
+}
+
+class Todo {
+    private long userId;
+    private long index;
+    private String title;
+    private boolean completed;
+}
+
+
+
+@enduml
